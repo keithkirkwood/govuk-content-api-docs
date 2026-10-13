@@ -42,8 +42,8 @@ jobs:
   pr-preview:
     name: Publish preview to GH pages
     environment:
-      name: gihub-pages-pr-${{ github.event.pull_request.number }}
-      url: ${{ steps.deployment.outputs.page_url }}/previews/pr-${{ github.event.pull_request.number }}
+      name: github-pages-pr-${{ github.event.pull_request.number }}
+      url: ${{ steps.pages.outputs.url }}/previews/pr-${{ github.event.pull_request.number }}
     runs-on: ubuntu-latest
     if: ${{ github.ref != 'refs/heads/main' }}
     permissions:
@@ -51,6 +51,12 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
+      - name: Get Pages URL
+        id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "url=$(gh api repos/${{ github.repository }}/pages --jq .html_url)" >> "$GITHUB_OUTPUT"
       - name: Install dependencies
         run: |
           gem install bundler
@@ -61,5 +67,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: build
           destination_dir: previews/pr-${{ github.event.pull_request.number }}
