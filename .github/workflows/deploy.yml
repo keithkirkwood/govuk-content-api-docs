@@ -11,7 +11,7 @@ on:
   
 jobs: 
   build-and-deploy:
-    name: Publish to GH pages
+    name: Publish main to GH pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -22,9 +22,10 @@ jobs:
       pages: write
       id-token: write
     steps: 
+      - name: Install dependencies
+        if: github.ref == 'refs/heads/main'
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
-      - name: Install dependencies
         run: |
           gem install bundler
           bundle install
@@ -39,3 +40,27 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+  pr-preview:
+    name: Publish preview to GH pages
+    environment:
+      name: gihub-pages-pr-${{ github.event.pull_request.number }}
+      url: ${{ steps.deployment.outputs.page_url }}/previews/pr-${{ github.event.pull_request.number }}
+    runs-on: ubuntu-latest
+    if: ${{ github.ref != 'refs/heads/main' }}
+    permissions:
+      contents: write
+    steps:
+      - name: Install dependencies
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
+        run: |
+          gem install bundler
+          bundle install
+      - name: Build
+        run: bundle exec rake build
+      - name: Publish preview to GH pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          destination_dir: previews/pr-${{ github.event.pull_request.number }}
