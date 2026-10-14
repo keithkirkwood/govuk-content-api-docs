@@ -1,6 +1,6 @@
 name: Deploy
 
-run-name: ${{ github.event.workflow_run.head_branch }} site updated to ${{ github.event.workflow_run.head_sha }}
+run-name: Deploy ${{ github.event.workflow_run.head_branch }} site
 
 on:
   workflow_dispatch: {}
