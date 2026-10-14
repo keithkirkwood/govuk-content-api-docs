@@ -1,6 +1,6 @@
 name: Deploy
 
-run-name: Site updated to ${{ github.ref }}
+run-name: Site updated to ${{ github.ref }} test
 
 on:
   workflow_dispatch: {}
