@@ -1,6 +1,6 @@
 name: Deploy
 
-run-name: ${{ github.event.workflow_run.head_branch }} site updated to ${{ github.event.workflow_run.head_commit.id }}
+run-name: ${{ github.event.workflow_run.head_branch }} site updated to ${{ github.event.workflow_run.head_sha }}
 
 on:
   workflow_dispatch: {}
@@ -22,6 +22,8 @@ jobs:
       id-token: write
     steps: 
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
       - uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
       - name: Install dependencies
         run: |
@@ -49,6 +51,8 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
       - uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
       - name: Get Pages URL
         id: pages
