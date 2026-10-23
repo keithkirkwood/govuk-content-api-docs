@@ -2,37 +2,61 @@
 title: GOV.UK Content API
 description: Understand what the GOV.UK Content API is and what you can do with it.
 type: concept
-audience: product_owner
-product: content-api
+audience: product-owner
+product: content-ap
 weight: 10
 ---
 
 # <%= current_page.data.title %>
 
-GOV.UK Content API makes it possible to access the data used to render content
-on [https://www.gov.uk](https://www.gov.uk) (hereafter referred to as GOV.UK).
-For any page hosted on GOV.UK you can [use the path][quick-start] to access
-the content and associated metadata for a page.
+The GOV.UK Content API is a public, read-only API for retrieving the content and
+metadata of pages published on the [GOV.UK][gov-uk] website. This API returns the
+same content published on the GOV.UK website that is available to any member of
+the public, but in a format that your services, tools and products can consume
+directly.
 
-GOV.UK Content API is accessed via [HTTP][] and returns data in a [JSON][]
-format. The [reference documentation][api-reference] details the
-endpoints and the response format.
+The GOV.UK Content API is owned and maintained by the Government Digital Service.​
+
+Brief outline of what the docs contain (few bullets).
 
 ## What you can do with this API
 
-This API is useful for applications that incorporate content from GOV.UK and
-for keeping that content up to date. It provides a more accessible and
-predictable interface than what can be achieved through scraping HTML pages.
+The GOV.UK Content API returns structured data in [JSON][json-def] format,
+providing a more accessible and predictable interface than scraping HTML from
+web pages. You can use this API for building services, tools and products which
+incorporate content from GOV.UK, and for keeping that content up to date.
 
-You can navigate between content within this API by utilising links. For
-example, for a page you could access the government organisation that published
-the page and then navigate to feature policies of that organisation.
+Links in the API response allow you to navigate between related GOV.UK content.
+For example, from one page you can see the government organisation who published
+the page, then retrieve the policies of that organisation.
+
+Our [API reference][api-reference] describes the API endpoints and response format
+you can expect.
 
 ## What you can't do with this API
 
-The content within this API is limited to pages hosted on
-[`www.gov.uk`](https://www.gov.uk) and does not include other websites that are
-subdomains of `gov.uk`.
+The content and metadata you can access using the GOV.UK Content API is limited
+to pages on the [GOV.UK][gov-uk] website. This **does not include** pages on
+other websites that are subdomains of `gov.uk`.
+
+### Included
+
+The following are examples of pages which you can access using the GOV.UK
+Content API:
+
+- [https://www.gov.uk/when-do-the-clocks-change]
+- [https://www.gov.uk/self-assessment-tax-returns/registering]
+- [https://www.gov.uk/browse/education]
+
+### Not included
+
+The following are examples of pages which you **cannot** access using the GOV.UK
+Content API:
+
+- [https://naturalengland.blog.gov.uk/2026/10/23/transforming-towns-and-cities-for-people-and-nature/]
+- [https://payments.service.gov.uk/using-govuk-pay/]
+
+Note no search, no full exports, no standalone attachments/images, no dynamic content.
 
 This API includes only the pages on GOV.UK that are available as HTML and does
 not allow direct access to attachments or images. These files however are
@@ -45,15 +69,14 @@ as placeholder documents without any content or as redirections to a
 catch-all content item that represents a group of unmigrated content.
 
 If you wish to access historic content this can currently be done
-through the [National Archives][].
+through the [National Archives][national-archives].
 
 ## Who can use this API
 
 Anyone can use this API for any purpose. There is no need for onboarding or
-signing any agreements. Please note that this API is currently in beta.
+signing any agreements.
 
-[quick-start]: /quick-start.html
 [api-reference]: /reference.html
-[National Archives]: http://webarchive.nationalarchives.gov.uk/*/https://www.gov.uk/
-[HTTP]: https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
-[JSON]: https://en.wikipedia.org/wiki/JSON
+[gov-uk]: https://www.gov.uk/
+[national-archives]: http://webarchive.nationalarchives.gov.uk/*/https://www.gov.uk/
+[json-def]: https://en.wikipedia.org/wiki/JSON
