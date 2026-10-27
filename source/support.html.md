@@ -9,10 +9,9 @@ weight: 60
 
 # Support
 
-GOV.UK Content API is currently in a [beta](https://www.gov.uk/help/beta)
-phase and may be subject to changes and improvements.
+The GOV.UK Content API is owned and maintained by the Government Digital Service.​
 
-If you experience any issues or have questions regarding GOV.UK Content API
+If you experience any issues or have questions regarding the GOV.UK Content API
 please:
 
 - **If you are a government department:** [Raise a ticket with GOV.UK Support][]

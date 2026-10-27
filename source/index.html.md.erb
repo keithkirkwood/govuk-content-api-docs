@@ -3,7 +3,7 @@ title: GOV.UK Content API
 description: Understand what the GOV.UK Content API is and what you can do with it.
 type: concept
 audience: product-owner
-product: content-ap
+product: content-api
 weight: 10
 ---
 
@@ -14,13 +14,11 @@ from supported pages on the [GOV.UK][gov-uk] website. This information is availa
 to any member of the public, but the API provides it in a format that your services,
 tools and products can consume directly.
 
-The GOV.UK Content API is owned and maintained by the Government Digital Service.​
-
 This technical documentation gives you information on:
 
-- How the GOV.UK Content API works
-- What you can (and can't) do using this API
-- How to retrieve and display content from GOV.UK
+- how the GOV.UK Content API works
+- what you can and cannot use the API for
+- how to retrieve and display GOV.UK content
 
 [Contact us][support] if you have any questions or feedback.
 
@@ -30,22 +28,22 @@ You can use the GOV.UK Content API for building services, tools and products whi
 incorporate content from GOV.UK, and for keeping that content up to date.
 
 The GOV.UK Content API returns a [JSON][json-def] representation of a page from
-the [GOV.UK][gov-uk] website. This API response includes page metadata, links to
-related content, and the page body as HTML — providing a more convenient and
+the [GOV.UK][gov-uk] website. The response includes page metadata, links to
+related content, and the page body as HTML. This provides a more convenient and
 predictable interface than scraping the HTML from web pages.
 
-Links in the API response allow you to navigate between related GOV.UK content.
-For example, from one page you can see the government organisation that published
-the page, then retrieve that organisation's policies from another page.
+The information returned by the API includes links between related GOV.UK content.
+For example, a response may identify the government organisation that published
+a page. You could then retrieve that organisation's policies from another page.
 
 Our [API reference][api-reference] describes the API endpoints and response format
-you can expect.
+a developer can expect.
 
 ## What you can't do with this API
 
-The content and metadata you can access using the GOV.UK Content API is limited
+The content and metadata you can access using the GOV.UK Content API are limited
 to pages on the [GOV.UK][gov-uk] website, published at the `www.gov.uk` domain.
-For example, here are some pages which you **can** access using the API:
+For example, here are some pages that you **can** access using the API:
 
 - ["Holiday entitlement rights" on `www.gov.uk`][holiday-entitlement-rights]
 - ["Registering for Self Assessment" on `www.gov.uk`][self-assessment-tax-returns]
@@ -53,7 +51,7 @@ For example, here are some pages which you **can** access using the API:
 
 The GOV.UK Content API does not provide access to content from websites on other
 subdomains of `gov.uk`, such as `blog.gov.uk`. The following are examples of pages
-which you **cannot** access using the API:
+that you **cannot** access using the API:
 
 - ["Transforming towns and cities for people and nature" on `blog.gov.uk`][people-and-nature]
 - ["Using GOV.UK Pay" on `payments.service.gov.uk`][using-govuk-pay]
@@ -66,8 +64,8 @@ to return those files directly. Instead you must retrieve, say, an image file
 directly from its source by other means.
 
 In addition, you can only access content from static pages on the GOV.UK website
-using this API. Content from pages which are generated dynamically (for example,
-from a search, or using bank holiday data) is not available from this API.
+using this API. Content from dynamic pages (for example, from a search, or using
+data that changes over time) is not available from this API.
 
 Some types of content are still being migrated to the GOV.UK Content API. In such
 cases, you may encounter a placeholder page which holds no content, or a redirect
