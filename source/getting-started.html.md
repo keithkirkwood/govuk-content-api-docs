@@ -4,6 +4,8 @@ title: Getting Started
 
 # Getting Started
 
+Test a change to the content for preview deployment, and make it a good one.
+
 This guide introduces a number of key concepts in GOV.UK Content API through
 the usage of examples. It utilises [curl](https://curl.haxx.se/) for
 interfacing with the API on the command line and is chosen due to the wide
