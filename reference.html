@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="govuk-template govuk-template--rebranded no-js">
+<html lang="en" class="govuk-template no-js">
   <head>
     
       <!-- Google Tag Manager -->
@@ -14,7 +14,7 @@
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-TB4X2Z34');
+      })(window,document,'script','dataLayer','GTM-5CPD828V');
     }
   </script>
   <!-- End Google Tag Manager -->
@@ -29,19 +29,19 @@
     <link href="stylesheets/manifest.css" rel="stylesheet" />
 
     <link rel="canonical" href="https://content-api.publishing.service.gov.uk/reference.html">
-      <link rel="icon" sizes="48x48" href="assets/govuk/assets/rebrand/images/favicon.ico">
-      <link rel="icon" sizes="any" href="assets/govuk/assets/rebrand/images/favicon.svg" type="image/svg+xml">
-      <link rel="mask-icon" href="assets/govuk/assets/rebrand/images/govuk-icon-mask.svg" color="#0b0c0c">
-      <link rel="apple-touch-icon" href="assets/govuk/assets/rebrand/images/govuk-icon-180.png">
-      <link rel="manifest" href="/assets/govuk/assets/rebrand/manifest.json">
+      <link rel="icon" sizes="48x48" href="assets/govuk/assets/images/favicon.ico">
+      <link rel="icon" sizes="any" href="assets/govuk/assets/images/favicon.svg" type="image/svg+xml">
+      <link rel="mask-icon" href="assets/govuk/assets/images/govuk-icon-mask.svg" color="#0b0c0c">
+      <link rel="apple-touch-icon" href="assets/govuk/assets/images/govuk-icon-180.png">
+      <link rel="manifest" href="/assets/govuk/assets/manifest.json">
 
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:domain" content="content-api.publishing.service.gov.uk" />
-      <meta name="twitter:image" content="https://content-api.publishing.service.gov.uk/assets/govuk/assets/rebrand/images/govuk-opengraph-image.png" />
+      <meta name="twitter:image" content="https://content-api.publishing.service.gov.uk/assets/govuk/assets/images/govuk-opengraph-image.png" />
       <meta name="twitter:title" content="API reference - Content API docs" />
       <meta name="twitter:url" content="https://content-api.publishing.service.gov.uk/reference.html" />
 
-      <meta property="og:image" content="https://content-api.publishing.service.gov.uk/assets/govuk/assets/rebrand/images/govuk-opengraph-image.png" />
+      <meta property="og:image" content="https://content-api.publishing.service.gov.uk/assets/govuk/assets/images/govuk-opengraph-image.png" />
       <meta property="og:site_name" content="Content API docs" />
       <meta property="og:title" content="API reference" />
       <meta property="og:type" content="object" />
@@ -52,38 +52,11 @@
 
   <body class="govuk-template__body">
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
-
-    <div class="app-pane">
-        <div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on Content API docs" hidden="hidden" data-module="cookie-banner">
-    <div class="govuk-cookie-banner__message govuk-width-container">
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-          <h2 class="govuk-cookie-banner__heading govuk-heading-m">
-            Cookies on Content API docs
-          </h2>
-          <div class="govuk-cookie-banner__content">
-            <p class="govuk-body">We’d like to use analytics cookies so we can understand how you use the service and make improvements.</p>
-          </div>
-        </div>
-      </div>
-      <div class="govuk-button-group">
-        <button id="cookie-banner__accept" type="button" class="govuk-button" data-module="govuk-button">
-          Accept analytics cookies
-        </button>
-        <button id="cookie-banner__reject" type="button" class="govuk-button" data-module="govuk-button">
-          Reject analytics cookies
-        </button>
-      </div>
-    </div>
-  </div>
-
-      <div class="app-pane__header toc-open-disabled">
-        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
-
-        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+    <header class="govuk-template__header app-header">
+      <div class="govuk-header app-header">
   <div class="govuk-header__container govuk-header__container--full-width">
     <div class="govuk-header__logo">
-      <a href="./" class="govuk-header__link govuk-header__link--homepage">
+      <a href="./" class="govuk-header__link govuk-header__homepage-link">
         <svg
           focusable="false"
           role="img"
@@ -115,22 +88,61 @@
       </a>
         <strong class="govuk-tag">Beta</strong>
     </div>
-    <div class="govuk-header__content">
-      <nav class="govuk-header__navigation govuk-header__navigation--end" aria-label="Menu">
-        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden>Menu</button>
-        <ul id="navigation" class="govuk-header__navigation-list">
-            <li class="govuk-header__navigation-item">
-              <a class="govuk-header__link" href="./getting-started.html">Getting Started</a>
+  </div>
+</div>
+
+    </header>
+        <div class="govuk-service-navigation app-pane__navigation" data-module="govuk-service-navigation">
+<div class="govuk-width-container">
+    <div class="govuk-service-navigation__container">
+      <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+        <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden aria-hidden="true">
+          Menu
+        </button>
+        <ul class="govuk-service-navigation__list" id="navigation">
+            <li class="govuk-service-navigation__item ">
+              <a class="govuk-service-navigation__link" href="./getting-started.html">
+                Getting Started
+              </a>
             </li>
-            <li class="govuk-header__navigation-item govuk-header__navigation-item--active">
-              <a class="govuk-header__link" href="./reference.html" aria-current="page">Reference</a>
+            <li class="govuk-service-navigation__item  govuk-service-navigation__item--active">
+              <a class="govuk-service-navigation__link" href="./reference.html" aria-current="page">
+                <strong class="govuk-service-navigation__active-fallback">Reference</strong>
+              </a>
             </li>
         </ul>
       </nav>
     </div>
   </div>
-</header>
+</div>
 
+
+
+        <div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on Content API docs" hidden="hidden" data-module="cookie-banner">
+    <div class="govuk-cookie-banner__message govuk-width-container">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-cookie-banner__heading govuk-heading-m">
+            Cookies on Content API docs
+          </h2>
+          <div class="govuk-cookie-banner__content">
+            <p class="govuk-body">We’d like to use analytics cookies so we can understand how you use the service and make improvements.</p>
+          </div>
+        </div>
+      </div>
+      <div class="govuk-button-group">
+        <button id="cookie-banner__accept" type="button" class="govuk-button" data-module="govuk-button">
+          Accept analytics cookies
+        </button>
+        <button id="cookie-banner__reject" type="button" class="govuk-button" data-module="govuk-button">
+          Reject analytics cookies
+        </button>
+      </div>
+    </div>
+  </div>
+
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
       </div>
 
         <div id="toc-heading" class="toc-show fixedsticky">
@@ -298,37 +310,46 @@ across GOV.UK has the same fundamental structure.</p>
 
 
 
+
+
+<p><em>application/json</em></p>
 <pre><code>{
-  "analytics_identifier": "integer",
-  "base_path": "string",
-  "content_id": "string",
-  "description": "string",
-  "details": {},
-  "document_type": "string",
-  "email_document_supertype": "string",
-  "first_published_at": "string",
-  "government_document_supertype": "string",
-  "links": {},
-  "locale": "string",
-  "navigation_document_supertype": "string",
-  "phase": "string",
-  "public_updated_at": "string",
-  "publishing_app": "string",
-  "publishing_request_id": "string",
-  "rendering_app": "string",
-  "schema_name": "string",
-  "title": "string",
-  "updated_at": "string",
-  "user_journey_document_supertype": "string",
-  "withdrawn_notice": {
-    "explanation": "string",
-    "withdrawn_at": "string"
+  &quot;analytics_identifier&quot;: &quot;integer&quot;,
+  &quot;base_path&quot;: &quot;string&quot;,
+  &quot;content_id&quot;: &quot;string&quot;,
+  &quot;description&quot;: &quot;string&quot;,
+  &quot;details&quot;: {},
+  &quot;document_type&quot;: &quot;string&quot;,
+  &quot;email_document_supertype&quot;: &quot;string&quot;,
+  &quot;first_published_at&quot;: &quot;string&quot;,
+  &quot;government_document_supertype&quot;: &quot;string&quot;,
+  &quot;links&quot;: {},
+  &quot;locale&quot;: &quot;string&quot;,
+  &quot;navigation_document_supertype&quot;: &quot;string&quot;,
+  &quot;phase&quot;: &quot;string&quot;,
+  &quot;public_updated_at&quot;: &quot;string&quot;,
+  &quot;publishing_app&quot;: &quot;string&quot;,
+  &quot;publishing_request_id&quot;: &quot;string&quot;,
+  &quot;rendering_app&quot;: &quot;string&quot;,
+  &quot;schema_name&quot;: &quot;string&quot;,
+  &quot;title&quot;: &quot;string&quot;,
+  &quot;updated_at&quot;: &quot;string&quot;,
+  &quot;user_journey_document_supertype&quot;: &quot;string&quot;,
+  &quot;withdrawn_notice&quot;: {
+    &quot;explanation&quot;: &quot;string&quot;,
+    &quot;withdrawn_at&quot;: &quot;string&quot;
   }
 }</code></pre>
 
+
+
 </td>
 <td>
+
+
 <a href='#schema-contentitem'>ContentItem</a>
+
+
 </td>
 </tr>
 
@@ -339,8 +360,11 @@ across GOV.UK has the same fundamental structure.</p>
 
 
 
+
 </td>
 <td>
+
+
 
 </td>
 </tr>
@@ -352,8 +376,11 @@ across GOV.UK has the same fundamental structure.</p>
 
 
 
+
 </td>
 <td>
+
+
 
 </td>
 </tr>
@@ -365,8 +392,11 @@ across GOV.UK has the same fundamental structure.</p>
 
 
 
+
 </td>
 <td>
+
+
 
 </td>
 </tr>
@@ -834,8 +864,12 @@ It is embedded within the <code>links</code> field that is used within ContentIt
 
           <aside>
           </aside>
+        </div>
+      </div>
 
-          <footer class="govuk-footer app-footer" role="contentinfo">
+
+    <footer class="govuk-template__footer">
+      <div class="govuk-footer app-footer">
   <svg focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 60" height="30" width="32" fill="currentcolor" class="govuk-footer__crown">
     <g>
       <circle cx="20" cy="17.6" r="3.7"></circle>
@@ -888,11 +922,9 @@ It is embedded within the <code>links</code> field that is used within ContentIt
       >© Crown copyright</a>
     </div>
   </div>
-</footer>
+</div>
 
-        </div>
-      </div>
-    </div>
+    </footer>
 
     
     <script src="javascripts/govuk_frontend.js" type="module"></script>
