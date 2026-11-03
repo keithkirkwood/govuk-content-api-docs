@@ -1,0 +1,66 @@
+---
+title: Get started
+description: Learn how to get up and running with the GOV.UK Content API for the first time.
+type: tutorial
+audience: developer, product-owner
+product: content-api
+weight: 20
+---
+
+# <%= current_page.data.title %>
+
+This guide walks you through getting started with the GOV.UK Content API to retrieve
+content by making a GET request to the API.
+
+## Who this is for
+
+You can use this guide if you are a developer or a non-developer who understands
+the basics of [APIs][api-def].
+
+## Before you start
+
+Make sure you have one of the following tools available:
+
+- a terminal with a data transfer utility, such as [curl][curl]
+- a dedicated API client such as the [Postman][postman-install] app
+
+## Authentication
+
+You do not need to authenticate to use the GOV.UK Content API.
+
+## Base URL
+
+The base URL for all requests to the GOV.UK Content API is:
+
+```txt
+https://www.gov.uk/api/content/
+```
+
+## Make your first API request
+
+To make your first request to the GOV.UK Content API:
+
+1. Choose a page on the GOV.UK website, for example: [https://www.gov.uk/take-pet-abroad](https://www.gov.uk/take-pet-abroad).
+2. Make a note of the URL component after the domain, which for our example is:
+   `/take-pet-abroad`.
+   This is the **path** for which you'll retrieve the content from the API.
+3. Add this path to the end of the API [Base URL](#base-url) to create the complete
+   **API URL**, which for our example is [`https://www.gov.uk/api/content/take-pet-abroad`](https://www.gov.uk/api/content/take-pet-abroad).
+4. Using your preferred tool, make a GET request to this API URL. For example,
+   use the curl utility in the terminal:
+   <pre><code class="language-shell">curl https://www.gov.uk/api/content/take-pet-abroad</code></pre>
+5. Alternatively, you can use a dedicated tool such as the Postman app to make
+   the GET request.
+   Look at the Postman [quick start][postman-quick-start] guide for how to do
+   this, using the API URL for the request.
+6. You’ll receive a JSON response and the fields for this are
+   explained in the [reference documentation](reference.html).
+
+## Next steps
+
+TBC
+
+[api-def]: https://en.wikipedia.org/wiki/API
+[curl]: https://curl.haxx.se/
+[postman-install]: https://www.postman.com/downloads/
+[postman-quick-start]: https://learning.postman.com/docs/getting-started/quick-start#send-an-api-request
