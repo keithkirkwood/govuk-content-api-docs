@@ -9,29 +9,30 @@ weight: 30
 
 # <%= current_page.data.title %>
 
-This page explains how the GOV.UK Content API accesses and represents GOV.UK content,
-and describes the data it returns.
+This page explains how the GOV.UK Content API represents GOV.UK content and
+describes the data it returns.
 
 <%= partial "partials/content_api_def" %>
 
 ## What the GOV.UK Content API returns
 
-A successful request to the GOV.UK Content API returns a `ContentItem` object in
-JSON format.
+A successful request to the GOV.UK Content API returns a [`ContentItem`][content-item]
+object in JSON format.
 
 You can retrieve the `ContentItem` for a supported GOV.UK page by including the
-page path in a request to this API. For example, for the [VAT rates](https://www.gov.uk/vat-rates)
-page:
+page's path in a request to the GOV.UK Content API. For example, to retrieve the
+ `ContentItem` for the [VAT rates](https://www.gov.uk/vat-rates) page:
 
 ```shell
 curl https://www.gov.uk/api/content/vat-rates
 ```
 
-The returned `ContentItem` represents the content and metadata associated with
-the requested page. It contains fields for the content, its metadata and its
-relationships with other GOV.UK content.
+The `ContentItem` returned in the API response represents the piece of content
+associated with the requested page. It contains fields for the content itself,
+its metadata and its relationships with other GOV.UK content.
 
-The following sections describe what you can expect in these fields.
+The following sections explain the purpose of the key fields in the `ContentItem`
+and what their values mean.
 
 ### Base paths
 
@@ -43,12 +44,13 @@ The following sections describe what you can expect in these fields.
 }
 ```
 
-Every [`ContentItem`][content-item] has a `base_path` field which is the same
-as the [path parameter](/reference.html#path-get-parameters) used to identify
-the content.
+Every `ContentItem` has a `base_path` field. This field always has the same value
+as the [path parameter][path-get-parameters] used to identify the content in the
+API request.
 
-The "base" aspect of this field is used as it indicates the root path of this
-piece of content as some pieces of content [span multiple pages](#canonical-paths-and-redirects).
+This is called the _base_ path because it is the canonical path to this piece
+of content, as some pieces of content may appear on [multiple pages](#canonical-paths-and-redirects)
+on the GOV.UK website.
 
 ### Document types and schema names
 
@@ -61,18 +63,27 @@ piece of content as some pieces of content [span multiple pages](#canonical-path
 }
 ```
 
-The `document_type` and `schema_name` fields are used to define the format of
-the data represented in a [`ContentItem`][content-item]. The main fields that
-are affected by this are [`details`](#details) and [`links`](#links).
+The `document_type` and `schema_name` fields are used to describe the type and
+format of data returned in a [`ContentItem`][content-item].
 
-The `schema_name` refers to a file referenced in
-[GOV.UK Content Schemas][content-schemas-repo] which utilises
-[JSON Schema][] to describe the rules of the data. The `document_type` defines
-the name of the format on GOV.UK. Often these fields share the same value as
-there is often only one schema for a particular `document_type`.
+The `schema_name` refers to a [JSON schema][json-schema] file held in
+[GOV.UK Content Schemas][content-schemas-repo]. This schema defines the structure
+of the object in the `ContentItem`'s `details` field.
 
-This is the case with [VAT Rates][vat-rates-api] where the content returned
-utilises the [`answer` schema][answer-schema].
+The `document_type` specifies the type of content represented by the `ContentItem`.
+This field typically indicates how the piece of content is used on the GOV.UK website.
+
+Often the `schema_name` and `document_type` fields share the same value, meaning
+there is only one document type for that particular schema. This is the case in
+the [VAT rates][vat-rates-api] example, where the piece of content returned has
+both the [`answer`][answer-schema] schema and document type.
+
+The `schema_name` and `document_type` can also have different values, because
+multiple document types can conform to the same schema. This allows pieces content
+with the same data structure to serve different purposes on GOV.UK.
+
+The values of `document_type` and `schema_name` also affect the [`details`](#details)
+and [`links`](#links) field. The following sections explain these effects.
 
 ### Details
 
@@ -95,7 +106,7 @@ structure is described by the [schema](#document-types-and-schema-names), which
 itself is defined by the `schema_name` field.
 
 In the case of [VAT Rates][vat-rates-api] an [`answer` schema][answer-schema]
-is used. The `answer` schema  allows a `body` value, which contains the HTML
+is used. The `answer` schema allows a `body` value, which contains the HTML
 for the page and a `external_related_links` value, which is an array that can
 be used to provide links to associated pages hosted off GOV.UK.
 
@@ -229,13 +240,13 @@ the `LinkedContentItem` object. This is available as it can be useful to have
 a tree of linked content. A common usage of this is to show the hierarchy of
 pages through use of the `parent` link type.
 
-[gov-uk]: https://www.gov.uk/
-[JSON Schema]: http://json-schema.org/
+[json-schema]: http://json-schema.org/
 [content-schemas-repo]: https://github.com/alphagov/publishing-api/tree/main/content_schemas
 [answer-schema]: https://github.com/alphagov/publishing-api/blob/ec396b5c305f740c7b3161d344262e4052ad97f9/content_schemas/dist/formats/answer/frontend/schema.json
 [content-item]: /reference.html#schema-contentitem
 [linked-content-item]: /reference.html#schema-linkedcontentitem
 [withdrawn-notice]: /reference.html#schema-withdrawnnotice
+[path-get-parameters]: /reference.html#path-get-parameters
 [vat-rates-api]: https://www.gov.uk/api/content/vat-rates
 [thailand-laws-customs]: https://www.gov.uk/foreign-travel-advice/thailand/local-laws-and-customs
 [thailand-print]: https://www.gov.uk/foreign-travel-advice/thailand/print
