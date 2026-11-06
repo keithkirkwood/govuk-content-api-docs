@@ -64,14 +64,15 @@ on the GOV.UK website.
 ```
 
 The `document_type` and `schema_name` fields are used to describe the type and
-format of data returned in a [`ContentItem`][content-item].
+format of data returned in a [`ContentItem`][content-item]:
 
-The `schema_name` refers to a [JSON schema][json-schema] file held in
-[GOV.UK Content Schemas][content-schemas-repo]. This schema defines the structure
-of the object in the `ContentItem`'s `details` field.
-
-The `document_type` specifies the type of content represented by the `ContentItem`.
-This field typically indicates how the piece of content is used on the GOV.UK website.
+- `schema_name`: refers to a [JSON schema][json-schema] file held in
+  [GOV.UK Content Schemas][content-schemas-repo].
+  This schema defines the structure of the object in the `ContentItem`'s `details`
+  field.
+- `document_type`: specifies the type of content represented by the `ContentItem`.
+  This field typically indicates how the piece of content is used on the GOV.UK
+  website.
 
 Often the `schema_name` and `document_type` fields share the same value, meaning
 there is only one document type for that particular schema. This is the case in
@@ -101,14 +102,14 @@ and [`links`](#links) field. The following sections explain these effects.
 <!-- markdownlint-enable MD013 -->
 
 The `details` field of a [`ContentItem`][content-item] is an object that
-contains data in a particular structure relevant for the type of content. This
-structure is described by the [schema](#document-types-and-schema-names), which
-itself is defined by the `schema_name` field.
+contains data in an appropriate structure for the piece of content. This
+structure is defined by the [JSON schema](#document-types-and-schema-names)
+identified in the `schema_name` field.
 
-In the case of [VAT Rates][vat-rates-api] an [`answer` schema][answer-schema]
-is used. The `answer` schema allows a `body` value, which contains the HTML
-for the page and a `external_related_links` value, which is an array that can
-be used to provide links to associated pages hosted off GOV.UK.
+In the [VAT rates][vat-rates-api] example, the [`answer`][answer-schema] schema
+is specified. This `answer` schema allows a `body` field, which contains the HTML
+for the main body of the piece of content, and an `external_related_links` field,
+which is an array of links to related web pages outside the GOV.UK website.
 
 ### Links
 
